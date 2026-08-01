@@ -1,0 +1,13 @@
+what we are building ? user open streamlit -> upload 1 or 2 pdfs -> process doc -> ask que ? 
+why not chatGPT ? -> Context limit (Large PDFs may not fit in the model’s context window) 
+                    cost (Sending every page for every question wastes tokens)
+                    speed (Processing the full PDF repeatedly is slow)
+                    accuracy (Processing the full PDF repeatedly is slow)
+                    Citations (It becomes harder to identify which page supported the answer)
+
+RAG = solves this by retrieving only the sections relevant to the user’s question.
+
+LangChain=  describes RAG as retrieval followed by generation: 
+            relevant information is selected from an indexed corpus and 
+            then supplied to the model at query time.
+
