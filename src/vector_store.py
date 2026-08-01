@@ -1,51 +1,45 @@
-import os
+from typing import List
 
 from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
+from langchain_core.documents import Document
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 load_dotenv()
 
 
-def create_vector_store(chunks):
-    """
-    Convert document chunks into embeddings
-    and store them inside a FAISS vector database.
-    """
+def create_vector_store(
+    chunks: List[Document],
+) -> FAISS:
+    if not chunks:
+        raise ValueError("No document chunks were provided.")
 
-    embeddings = OpenAIEmbeddings(
-        model="text-embedding-3-small"
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model="gemini-embedding-001",
     )
 
-    vector_store = FAISS.from_documents(
+    return FAISS.from_documents(
         documents=chunks,
         embedding=embeddings,
     )
 
-    return vector_store
 
-
-def save_vector_store(vector_store, path="faiss_indexes/index"):
-    """
-    Save FAISS index to disk.
-    """
-
+def save_vector_store(
+    vector_store: FAISS,
+    path: str = "faiss_indexes/index",
+) -> None:
     vector_store.save_local(path)
 
 
-def load_vector_store(path="faiss_indexes/index"):
-    """
-    Load existing FAISS index.
-    """
-
-    embeddings = OpenAIEmbeddings(
-        model="text-embedding-3-small"
+def load_vector_store(
+    path: str = "faiss_indexes/index",
+) -> FAISS:
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model="gemini-embedding-001",
     )
 
-    vector_store = FAISS.load_local(
+    return FAISS.load_local(
         path,
         embeddings,
         allow_dangerous_deserialization=True,
     )
-
-    return vector_store

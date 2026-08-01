@@ -10,8 +10,8 @@ from src.vector_store import create_vector_store
 # --------------------------------------------------
 # 1. Load environment variables
 # --------------------------------------------------
-load_dotenv()
 
+load_dotenv()
 
 # --------------------------------------------------
 # 2. Page configuration
@@ -183,8 +183,9 @@ st.write(
 )
 
 st.caption(
-    "Built using Python, Streamlit, LangChain, FAISS, and OpenAI."
+    "Built using Python, Streamlit, LangChain, FAISS, and Gemini."
 )
+
 
 
 # --------------------------------------------------
