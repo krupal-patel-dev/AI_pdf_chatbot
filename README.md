@@ -1,39 +1,42 @@
 # 📄 AI PDF Chatbot (Mini RAG)
 
-This is a simple AI PDF Chatbot built using Python, Streamlit, LangChain, FAISS, and OpenAI.
+A simple AI-powered PDF Question Answering application built using **Python, Streamlit, LangChain, FAISS, and Google Gemini**.
 
-The application allows users to upload a PDF file and ask questions about its content. Instead of sending the entire PDF to the LLM, it uses the RAG (Retrieval-Augmented Generation) approach to retrieve only the most relevant information before generating the answer.
+The application allows users to upload a PDF document and ask questions about its content. Instead of sending the entire PDF to the LLM, it follows the **Retrieval-Augmented Generation (RAG)** approach to retrieve only the most relevant information before generating an answer.
 
 ---
 
-## Features
+# 1. Features
 
 - Upload PDF documents
 - Extract text from PDF pages
 - Split text into smaller chunks
-- Generate OpenAI embeddings
-- Store embeddings using FAISS
+- Generate Gemini embeddings
+- Store embeddings in FAISS Vector Database
 - Ask questions in natural language
-- Retrieve the most relevant chunks
-- Generate answers using OpenAI GPT
+- Retrieve the most relevant document chunks
+- Generate answers using Google Gemini
 - Display source references
 - Simple Streamlit chat interface
 
 ---
 
-## Tech Stack
+# 2. Tech Stack
 
-- Python
-- Streamlit
-- LangChain
-- OpenAI
-- FAISS
-- PyPDF
-- Python Dotenv
+| Category | Technology |
+|----------|------------|
+| Language | Python |
+| UI | Streamlit |
+| Framework | LangChain |
+| LLM | Google Gemini |
+| Embeddings | Gemini Embeddings |
+| Vector Database | FAISS |
+| PDF Reader | PyPDF |
+| Environment | Python Dotenv |
 
 ---
 
-## Project Flow
+# 3. Project Flow
 
 ```
 Upload PDF
@@ -48,22 +51,22 @@ Generate Embeddings
       ↓
 Store in FAISS
       ↓
-Ask Question
+User Asks Question
       ↓
 Similarity Search
       ↓
 Retrieve Relevant Chunks
       ↓
-Send Context + Question to GPT
+Send Context + Question to Gemini
       ↓
 Generate Answer
       ↓
-Show Answer + Sources
+Display Answer + Sources
 ```
 
 ---
 
-## Project Structure
+# 4. Project Structure
 
 ```
 ai-pdf-study-assistant/
@@ -86,41 +89,41 @@ ai-pdf-study-assistant/
 
 ---
 
-## Installation
+# 5. Installation
 
-Clone the repository
+### Step 1: Clone the repository
 
 ```bash
 git clone <repository-url>
 ```
 
-Go to the project folder
+### Step 2: Open the project folder
 
 ```bash
 cd ai-pdf-study-assistant
 ```
 
-Create virtual environment
+### Step 3: Create a virtual environment
 
 ```bash
 python3.12 -m venv .venv
 ```
 
-Activate virtual environment
+### Step 4: Activate the virtual environment
 
-macOS / Linux
+**macOS / Linux**
 
 ```bash
 source .venv/bin/activate
 ```
 
-Windows
+**Windows**
 
 ```bash
 .venv\Scripts\activate
 ```
 
-Install all dependencies
+### Step 5: Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -128,16 +131,17 @@ pip install -r requirements.txt
 
 ---
 
-## Environment Variable
+# 6. Environment Variables
 
-Create a `.env` file.
+Create a `.env` file in the project folder.
 
-
+```env
+GOOGLE_API_KEY=your_gemini_api_key
 ```
 
 ---
 
-## Run the Project
+# 7. Run the Project
 
 ```bash
 streamlit run app.py
@@ -151,55 +155,79 @@ http://localhost:8501
 
 ---
 
-## How It Works
+# 8. How It Works
 
 1. Upload a PDF document.
-2. The application extracts text from all pages.
-3. The text is divided into smaller chunks.
-4. OpenAI creates embeddings for each chunk.
-5. Embeddings are stored in a FAISS vector database.
-6. User asks a question.
-7. FAISS finds the most relevant chunks.
-8. The retrieved chunks are sent to the OpenAI model.
-9. The chatbot generates an answer with source references.
+2. Read the PDF and extract text from every page.
+3. Split the extracted text into smaller chunks.
+4. Generate embeddings for every chunk using Gemini.
+5. Store embeddings in the FAISS vector database.
+6. Ask a question about the uploaded PDF.
+7. Perform semantic similarity search.
+8. Retrieve the most relevant document chunks.
+9. Send the retrieved context and question to Gemini.
+10. Generate the final answer.
+11. Display the answer along with source references.
 
 ---
 
-## Future Improvements
+# 9. Future Improvements
 
-- Support multiple PDFs
+- Support multiple PDF documents
 - Save chat history
 - OCR support for scanned PDFs
-- Better UI
-- Docker deployment
+- Better UI/UX
+- Docker support
 - Cloud deployment
+- Conversation memory
+- Persistent FAISS database
 
 ---
 
-## Screenshots
+# 10. Screenshots
 
 ### Home Page
 
-(Add screenshot)
-
-### PDF Uploaded
-
-(Add screenshot)
-
-### Chat Interface
-
-(Add screenshot)
-
-### Answer with Sources
-
-(Add screenshot)
+_Add screenshot here_
 
 ---
 
-## Author
+### PDF Upload
+
+_Add screenshot here_
+
+---
+
+### Chat Interface
+
+_Add screenshot here_
+
+---
+
+### Answer with Sources
+
+_Add screenshot here_
+
+---
+
+# 11. Requirements
+
+- Python 3.12+
+- Streamlit
+- LangChain
+- LangChain Community
+- LangChain Google GenAI
+- LangChain Text Splitters
+- FAISS
+- PyPDF
+- Python Dotenv
+
+---
+
+# 12. Author
 
 **Krupal Patel**
 
-MS Computer Science Student
+MS in Computer Science
 
-Interested in AI, LLMs, RAG, LangChain, and AI Agents.
+Interested in Artificial Intelligence, Generative AI, LLMs, RAG, LangChain, and AI Agent Development.
